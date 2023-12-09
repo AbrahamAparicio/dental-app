@@ -1,0 +1,49 @@
+.scheduler {
+  width: 100%;
+}
+
+.scheduler_card {
+  padding: 10px 40px 10px 40px;
+}
+
+h2 {
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 60px;
+  text-align: center;
+}
+.form__input {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form_text {
+  margin: 20px;
+  width: 150px;
+}
+
+.form__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__input__options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1670px) {
+  .form__container {
+    flex-direction: column;
+  }
+}
+
+label {
+  margin-bottom: 10px;
+}

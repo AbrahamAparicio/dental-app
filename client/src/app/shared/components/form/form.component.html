@@ -1,0 +1,251 @@
+<p-card class="scheduler responsive-styles" [style]="{ width: '100%' }">
+  <form
+    class="scheduler_card"
+    #formSubmit="ngForm"
+    (ngSubmit)="onSubmit(formSubmit)"
+  >
+    <div class="form__container">
+      <div class="form__input__container">
+        <div class="form__input">
+          <label for="nombre">Nombre</label>
+          <input
+            id="nombre"
+            type="text"
+            aria-describedby="nombre-help"
+            pInputText
+            style="padding: 8px; width: 100%"
+            [(ngModel)]="appointment.nombre"
+            name="nombre"
+            [ngClass]="{
+              'ng-invalid': formSubmitted && !appointment.nombre,
+              'ng-dirty': formSubmitted && !appointment.nombre
+            }"
+          />
+
+          <small
+            id="nombre-help"
+            class="p-error"
+            *ngIf="formSubmitted && !appointment.nombre"
+            >Campo requerido</small
+          >
+        </div>
+
+        <div class="form__input">
+          <label for="apellido">Apellido</label>
+          <input
+            id="apellido"
+            type="text"
+            aria-describedby="apellido-help"
+            pInputText
+            style="padding: 8px; width: 100%"
+            [(ngModel)]="appointment.apellido"
+            name="apellido"
+            [ngClass]="{
+              'ng-invalid': formSubmitted && !appointment.apellido,
+              'ng-dirty': formSubmitted && !appointment.apellido
+            }"
+          />
+
+          <small
+            id="nombre-help"
+            class="p-error"
+            *ngIf="formSubmitted && !appointment.apellido"
+            >Campo requerido</small
+          >
+        </div>
+
+        <div class="form__input">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            aria-describedby="email-help"
+            pInputText
+            style="padding: 8px; width: 100%"
+            [(ngModel)]="appointment.email"
+            name="email"
+            [ngClass]="{
+              'ng-invalid': formSubmitted && !appointment.email,
+              'ng-dirty': formSubmitted && !appointment.email
+            }"
+          />
+
+          <small
+            id="nombre-help"
+            class="p-error"
+            *ngIf="formSubmitted && !appointment.email"
+            >Campo requerido</small
+          >
+        </div>
+
+        <div class="form__input">
+          <label for="edad">Edad</label>
+          <input
+            id="edad"
+            type="text"
+            aria-describedby="edad-help"
+            pInputText
+            style="padding: 8px; width: 100%"
+            [(ngModel)]="appointment.edad"
+            name="edad"
+            [ngClass]="{
+              'ng-invalid': formSubmitted && !appointment.edad,
+              'ng-dirty': formSubmitted && !appointment.edad
+            }"
+          />
+
+          <small
+            id="nombre-help"
+            class="p-error"
+            *ngIf="formSubmitted && !appointment.edad"
+            >Campo requerido</small
+          >
+        </div>
+
+        <div class="form__input">
+          <label for="telefono">Teléfono</label>
+          <input
+            id="telefono"
+            type="text"
+            aria-describedby="telefono-help"
+            pInputText
+            style="padding: 8px; width: 100%"
+            [(ngModel)]="appointment.telefono"
+            name="telefono"
+            [ngClass]="{
+              'ng-invalid': formSubmitted && !appointment.telefono,
+              'ng-dirty': formSubmitted && !appointment.telefono
+            }"
+          />
+
+          <small
+            id="nombre-help"
+            class="p-error"
+            *ngIf="formSubmitted && !appointment.telefono"
+            >Campo requerido</small
+          >
+        </div>
+
+        <div class="form__input">
+          <label for="cedula">Cédula</label>
+          <input
+            id="cedula"
+            type="text"
+            aria-describedby="cedula-help"
+            pInputText
+            style="padding: 8px; width: 100%"
+            [(ngModel)]="appointment.cedula"
+            name="cedula"
+            [ngClass]="{
+              'ng-invalid': formSubmitted && !appointment.cedula,
+              'ng-dirty': formSubmitted && !appointment.cedula
+            }"
+          />
+
+          <small
+            id="nombre-help"
+            class="p-error"
+            *ngIf="formSubmitted && !appointment.cedula"
+            >Campo requerido</small
+          >
+        </div>
+      </div>
+
+      <div class="form__input__options">
+        <div class="form__input">
+          <label for="doctor">Doctores Disponibles</label>
+          <p-dropdown
+            id="doctor"
+            [(ngModel)]="appointment.doctor"
+            name="doctor"
+            [options]="doctores"
+            optionLabel="name"
+            placeholder="Selecciona tu doctor"
+            [style]="{ width: '100%', padding: '8px' }"
+            [ngClass]="{
+              'ng-invalid': formSubmitted && !appointment.doctor,
+              'ng-dirty': formSubmitted && !appointment.doctor
+            }"
+          >
+          </p-dropdown>
+        </div>
+
+        <div class="form__input">
+          <label for="tipo_tratamiento">Tipos de Tratamientos</label>
+          <p-dropdown
+            id="tipo_tratamiento"
+            [(ngModel)]="appointment.tipo_tratamiento"
+            name="tipo_tratamiento"
+            [options]="tratamientos"
+            optionLabel="name"
+            placeholder="Selecciona un tipo de tratamiento"
+            [style]="{ width: '100%', padding: '8px' }"
+            [ngClass]="{
+              'ng-invalid': formSubmitted && !appointment.tipo_tratamiento,
+              'ng-dirty': formSubmitted && !appointment.tipo_tratamiento
+            }"
+          ></p-dropdown>
+          <small
+            id="nombre-help"
+            class="p-error"
+            *ngIf="formSubmitted && !appointment.tipo_tratamiento"
+            >Campo requerido</small
+          >
+        </div>
+
+        <div class="form__input">
+          <label for="metodo_pago">Métodos de Pago</label>
+          <p-dropdown
+            id="metodo_pago"
+            [(ngModel)]="appointment.metodo_pago"
+            name="metodo_pago"
+            [options]="metodoPagos"
+            optionLabel="name"
+            placeholder="Selecciona un método de pago"
+            [style]="{ width: '100%', padding: '8px',  }"
+            [ngClass]="{
+              'ng-invalid': formSubmitted && !appointment.metodo_pago,
+              'ng-dirty': formSubmitted && !appointment.metodo_pago
+            }"
+          ></p-dropdown>
+          <small
+            id="nombre-help"
+            class="p-error"
+            *ngIf="formSubmitted && !appointment.metodo_pago"
+            >Campo requerido</small
+          >
+        </div>
+        <div class="form_input">
+          <label for="fecha"> Fecha </label>
+          <p-calendar
+            [(ngModel)]="appointment.fecha"
+            name="fecha"
+            [style]="{ width: '100%' }"
+            placeholder="Selecciona una fecha"
+            [showTime]="true"
+            [showIcon]="true"
+            [ngClass]="{
+              'ng-invalid': formSubmitted && !appointment.fecha,
+              'ng-dirty': formSubmitted && !appointment.fecha
+            }"
+          ></p-calendar>
+          <small
+            id="nombre-help"
+            class="p-error"
+            *ngIf="formSubmitted && !appointment.fecha"
+          >
+            Campo requerido</small
+          >
+        </div>
+      </div>
+    </div>
+    <p-toast></p-toast>
+    <button
+      type="submit"
+      label="Agendar Cita"
+      pButton
+      pRipple
+      (click)="onSubmit(formSubmitted)"
+    ></button>
+  </form>
+</p-card>
